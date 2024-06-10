@@ -26,15 +26,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 import pickle
-import gzip
+
 
 # ## Load the data
 
 diabetes_df = pd.read_csv('Healthcare-Diabetes.csv')
 diabetes_df.head()
 
-
-# ## Data Preparation
 
 
 # Get the shape of data
@@ -241,21 +239,7 @@ con_RandomForestClassifier_matrix_display.plot(cmap=plt.cm.Blues, ax=ax)
 # ## Save the Model
 
 
-import joblib
-# Save the trained model to a file
-# joblib.dump(RandomForestClassifier_model, 'random_forest_classifier_model.pkl')
-
-#print("Model saved successfully!")
-
-
-# ## Use the Model
-
-
-# Load the saved model from the file
-# model = joblib.load('random_forest_classifier_model.pkl')
-
-
-rfc_pickle = gzip.open('random_forest_classifier_model.pkl', 'wb')
+rfc_pickle = open('random_forest_classifier_model.pkl', 'wb')
 pickle.dump(RandomForestClassifier_model,rfc_pickle)
 rfc_pickle.close()
 
